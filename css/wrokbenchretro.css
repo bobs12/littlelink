@@ -18,12 +18,10 @@ html, body {
   background-color: var(--bg) !important;
   color: var(--ink) !important;
   font-weight: bold;
-}
-
-body {
+  min-height: 100%;
   background-image: radial-gradient(var(--ink) 0.6px, transparent 0.6px);
   background-size: 10px 10px;
-  background-attachment: fixed;
+  background-repeat: repeat;
 }
 
 .container {
@@ -141,8 +139,6 @@ a[class*=" button-"]:hover {
 .button-default:hover {
   box-shadow: 1px 1px 0 var(--accent-orange) !important;
 }
-
-
 .button-default .icon {
   filter: brightness(0) saturate(100%);
   opacity: 0.85;
