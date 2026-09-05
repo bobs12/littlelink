@@ -1,54 +1,45 @@
-
 <!DOCTYPE html>
 
-<!--
-  To change the theme, change the class on the html tag below to one of:
-  - theme-auto: Automatically switches based on user's system preferences
-  - theme-light: Forces light theme
-  - theme-dark: Forces dark theme
--->
-
-<html class="theme-dark" lang="en"> <!-- Forced dark, бо ретро-тема все одно перекриває фон -->
+<html class="theme-dark" lang="en">
 
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <!-- Page Title -->
     <title>Dmytro Babii</title>
     <link rel="icon" type="image/png" href="images/avatar.png">
 
-    <!-- Meta Description -->
     <meta name="description" content="Dmytro Babii — LinkedIn and CV.">
 
-    <!-- Canonical URL -->
     <link rel="canonical" href="https://dmytrobabii.pp.ua">
 
-    <!-- Author Information -->
     <meta name="author" content="Dmytro Babii">
 
-    <!-- Browser UI Color -->
-    <meta name="theme-color" content="#0a0704">
+    <meta name="theme-color" content="#dcd6c4">
 
-    <!-- Font Preloads -->
     <link rel="preload" href="fonts/open-sans-v34-vietnamese_latin-ext_latin_hebrew_greek-ext_greek_cyrillic-ext_cyrillic-regular.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="preload" href="fonts/open-sans-v34-vietnamese_latin-ext_latin_hebrew_greek-ext_greek_cyrillic-ext_cyrillic-700.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="preload" href="fonts/open-sans-v34-vietnamese_latin-ext_latin_hebrew_greek-ext_greek_cyrillic-ext_cyrillic-800.woff2" as="font" type="font/woff2" crossorigin>
 
-    <!-- Stylesheets -->
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/brands.css">
 
-    <!-- Retro Amber CRT theme (custom) -->
-    <!-- <link rel="stylesheet" href="css/retro-amber.css"> -->
-    <link rel="stylesheet" href="css/wrokbenchretro.css">
+    <!-- Retro Workbench theme (custom) -->
+    <link rel="stylesheet" href="css/retro-workbench-v2.css">
 
   </head>
 
 <body>
 
     <div class="container">
+
+      <!-- Тайтлбар вікна -->
+      <div class="win-titlebar">
+        <span class="win-title">dmytro.deb</span>
+        <span class="win-close">&times;</span>
+      </div>
+
         <div class="column">
           <main>
 
@@ -56,7 +47,7 @@
 
             <h1>Dmytro Babii</h1>
 
-            <p>Communications | Strategic Comms &amp; Digital Media</p>
+            <p>System Administrator | DevOps </p>
 
             <nav class="button-stack" aria-label="Links">
 
@@ -65,6 +56,9 @@
 
               <!-- CV -->
               <a class="button button-default" href="https://dmytrobabii.pp.ua/" target="_blank" rel="noopener"><img class="icon" aria-hidden="true" src="images/icons/generic-website.svg" alt="CV Icon">CV</a>
+
+              <!-- Email -->
+              <a class="button button-default" href="mailto:dmytro.babii@icloud.com"><img class="icon" aria-hidden="true" src="images/icons/generic-email.svg" alt="Email Icon">Email</a>
 
       </nav>
       </main>
