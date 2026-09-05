@@ -4,5 +4,5 @@ spec:
     - name: littlelink
       git:
         branch: main
-        repo_clone_url: https://github.com/sethcottle/littlelink.git
-      output_dir: /
+        repo_clone_url: https://github.com/bobs12/littlelink.git
+      output_dir:
