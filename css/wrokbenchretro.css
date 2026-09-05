@@ -1,0 +1,140 @@
+/* =========================================================
+   RETRO WORKBENCH THEME for LittleLink
+   Стиль у тій же родині, що й CV (кремові панелі, чорні рамки,
+   тверді тіні, смугасті заголовки), але з іншим акцентом —
+   щоб сторінки виглядали як частини однієї системи, а не клони.
+
+   Підключіть замість retro-amber.css:
+   <link rel="stylesheet" href="css/retro-workbench.css">
+   ========================================================= */
+
+:root {
+  --ink: #142850;        /* темно-навy текст/рамки */
+  --paper: #efe9da;      /* кремовий фон панелі */
+  --bg: #dcd6c4;         /* кремовий фон сторінки, трохи темніший */
+  --accent-cyan: #4fb8c9;
+  --accent-orange: #d97a2c;
+  --shadow: 5px 5px 0 var(--ink);
+}
+
+html, body {
+  background-color: var(--bg) !important;
+  color: var(--ink) !important;
+  font-family: "Courier New", "Lucida Console", Consolas, monospace !important;
+  font-weight: bold;
+}
+
+/* Легка крапчаста текстура фону, як на CV */
+body {
+  background-image: radial-gradient(var(--ink) 0.6px, transparent 0.6px);
+  background-size: 10px 10px;
+  background-attachment: fixed;
+}
+
+.container {
+  background-color: var(--paper) !important;
+  border: 3px solid var(--ink) !important;
+  box-shadow: var(--shadow) !important;
+  padding: 40px 32px !important;
+  position: relative;
+  max-width: 480px;
+  margin: 60px auto !important;
+}
+
+/* Смугастий "тайтлбар" зверху панелі, як заголовки блоків на CV */
+.container::before {
+  content: "LINKS.SYS";
+  display: block;
+  position: absolute;
+  top: -34px;
+  left: -3px;
+  right: -3px;
+  height: 30px;
+  background: repeating-linear-gradient(
+    135deg,
+    var(--ink) 0px, var(--ink) 10px,
+    var(--paper) 10px, var(--paper) 20px
+  );
+  border: 3px solid var(--ink);
+  color: var(--paper);
+  font-size: 13px;
+  letter-spacing: 2px;
+  display: flex;
+  align-items: center;
+  padding-left: 12px;
+  text-shadow: 1px 1px 0 var(--ink), -1px -1px 0 var(--ink);
+  -webkit-text-stroke: 3px var(--paper);
+  paint-order: stroke fill;
+}
+
+h1, .title, header h1 {
+  color: var(--ink) !important;
+  font-weight: bold !important;
+  letter-spacing: 1px;
+  text-shadow: none;
+  border-bottom: 3px solid var(--ink);
+  display: inline-block;
+  padding-bottom: 4px;
+}
+
+p, .description {
+  color: var(--ink) !important;
+  opacity: 0.85;
+}
+
+img.profile-pic, .avatar {
+  border-radius: 0 !important;
+  border: 3px solid var(--ink) !important;
+  box-shadow: 4px 4px 0 var(--ink);
+  filter: grayscale(0.3) contrast(1.05);
+}
+
+/* Кнопки — як теги навичок на CV: біле тло, чорна рамка, тверда тінь */
+.button,
+a[class^="button-"],
+a[class*=" button-"] {
+  background-color: #f7f4ea !important;
+  color: var(--ink) !important;
+  border: 2px solid var(--ink) !important;
+  border-radius: 0 !important;
+  box-shadow: 3px 3px 0 var(--ink) !important;
+  text-shadow: none !important;
+  transition: transform 0.1s ease-in-out, box-shadow 0.1s ease-in-out;
+  font-weight: bold !important;
+}
+
+.button:hover,
+a[class^="button-"]:hover,
+a[class*=" button-"]:hover {
+  transform: translate(2px, 2px);
+  box-shadow: 1px 1px 0 var(--ink) !important;
+  background-color: #ffffff !important;
+}
+
+/* Різні кнопки — різний акцентний колір рамки, як різнокольорові теги на CV */
+.button-linked {
+  border-color: var(--accent-cyan) !important;
+  box-shadow: 3px 3px 0 var(--accent-cyan) !important;
+}
+.button-linked:hover {
+  box-shadow: 1px 1px 0 var(--accent-cyan) !important;
+}
+
+.button-default {
+  border-color: var(--accent-orange) !important;
+  box-shadow: 3px 3px 0 var(--accent-orange) !important;
+}
+.button-default:hover {
+  box-shadow: 1px 1px 0 var(--accent-orange) !important;
+}
+
+.button .icon,
+a[class^="button-"] .icon {
+  filter: none;
+  opacity: 1;
+}
+
+footer, .footer, a[href="privacy.html"] {
+  color: var(--ink) !important;
+  opacity: 0.7;
+}
