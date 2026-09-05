@@ -1,5 +1,10 @@
 /* =========================================================
    RETRO WORKBENCH THEME v2 for LittleLink
+   Виправлено: читабельний тайтлбар, шрифт, видимість іконок,
+   доданий хрестик у кутку.
+
+   Потребує невеликого доповнення в index.html (титульна панель) —
+   див. інструкцію нижче.
    ========================================================= */
 
 :root {
@@ -10,6 +15,7 @@
   --accent-orange: #d97a2c;
 }
 
+/* Примусово моноширинний шрифт для абсолютно всього */
 *, *::before, *::after {
   font-family: "Courier New", "Lucida Console", Consolas, monospace !important;
 }
@@ -35,6 +41,7 @@ html, body {
   flex-direction: column;
 }
 
+/* Тайтлбар (потребує розмітки в index.html — див. інструкцію) */
 .win-titlebar {
   display: flex;
   align-items: center;
@@ -77,6 +84,7 @@ html, body {
   user-select: none;
 }
 
+/* Внутрішній контент з відступами (замість padding на .container) */
 .column {
   padding: 40px 32px;
 }
@@ -139,6 +147,10 @@ a[class*=" button-"]:hover {
 .button-default:hover {
   box-shadow: 1px 1px 0 var(--accent-orange) !important;
 }
+
+/* Іконки — за замовчуванням деякі SVG білі/прозорі і губляться на
+   світлому тлі. Робимо їх чорними для нейтральних (button-default),
+   брендові (LinkedIn і т.д.) лишаємо як є. */
 .button-default .icon {
   filter: brightness(0) saturate(100%);
   opacity: 0.85;
@@ -148,6 +160,10 @@ a[class*=" button-"]:hover {
 a[class^="button-"]:not(.button-default) .icon {
   filter: none;
   opacity: 1;
+  background-color: #0A66C2;
+  border-radius: 3px;
+  padding: 2px;
+  box-sizing: border-box;
 }
 
 footer, .footer, a[href="privacy.html"] {
