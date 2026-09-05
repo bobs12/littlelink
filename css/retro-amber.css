@@ -1,0 +1,130 @@
+/* =========================================================
+   RETRO AMBER CRT THEME for LittleLink
+   Підключіть цей файл ПІСЛЯ основного skeleton-*.css в index.html:
+   <link rel="stylesheet" href="css/retro-amber.css">
+   ========================================================= */
+
+:root {
+  --amber: #ffb000;
+  --amber-dim: #b37400;
+  --amber-glow: rgba(255, 176, 0, 0.65);
+  --crt-bg: #0a0704;
+}
+
+html, body {
+  background-color: var(--crt-bg) !important;
+  color: var(--amber) !important;
+  font-family: "Courier New", "Lucida Console", Consolas, monospace !important;
+  position: relative;
+  overflow-x: hidden;
+}
+
+/* Легке зерно/віньєтка як у старого монітора */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(ellipse at center, rgba(0,0,0,0) 55%, rgba(0,0,0,0.55) 100%);
+  z-index: 2;
+}
+
+/* Рухомі скан-лінії */
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background: repeating-linear-gradient(
+    to bottom,
+    rgba(255, 176, 0, 0.04) 0px,
+    rgba(255, 176, 0, 0.04) 1px,
+    transparent 2px,
+    transparent 4px
+  );
+  animation: scan-move 8s linear infinite;
+  z-index: 3;
+}
+
+@keyframes scan-move {
+  0%   { background-position: 0 0; }
+  100% { background-position: 0 100px; }
+}
+
+/* Тонке мерехтіння яскравості, як у старих ЕПТ */
+@keyframes flicker {
+  0%, 100% { opacity: 1; }
+  92%      { opacity: 1; }
+  93%      { opacity: 0.94; }
+  94%      { opacity: 1; }
+}
+.container {
+  animation: flicker 6s infinite;
+  position: relative;
+  z-index: 1;
+}
+
+/* Заголовок / ім'я */
+h1, .title, header h1 {
+  color: var(--amber) !important;
+  text-shadow: 0 0 4px var(--amber-glow), 0 0 12px var(--amber-glow);
+  font-weight: normal !important;
+  letter-spacing: 1px;
+}
+
+/* Мигаючий курсор після імені */
+h1::after {
+  content: "_";
+  animation: blink 1s steps(1) infinite;
+  margin-left: 4px;
+}
+@keyframes blink {
+  0%, 49% { opacity: 1; }
+  50%, 100% { opacity: 0; }
+}
+
+/* Опис/біо */
+p, .description {
+  color: var(--amber-dim) !important;
+  text-shadow: 0 0 3px var(--amber-glow);
+}
+
+/* Аватар — квадратна рамка в стилі старого монітора замість круглої */
+img.profile-pic, .avatar {
+  border-radius: 4px !important;
+  border: 2px solid var(--amber) !important;
+  box-shadow: 0 0 8px var(--amber-glow);
+  filter: sepia(1) hue-rotate(-15deg) saturate(3) brightness(0.9);
+}
+
+/* Кнопки — уніфікований термінальний стиль замість брендових кольорів */
+.button,
+a[class^="button-"],
+a[class*=" button-"] {
+  background-color: transparent !important;
+  color: var(--amber) !important;
+  border: 1px solid var(--amber) !important;
+  border-radius: 2px !important;
+  box-shadow: 0 0 6px var(--amber-glow);
+  text-shadow: 0 0 4px var(--amber-glow);
+  transition: all 0.15s ease-in-out;
+}
+
+.button:hover,
+a[class^="button-"]:hover,
+a[class*=" button-"]:hover {
+  background-color: var(--amber) !important;
+  color: var(--crt-bg) !important;
+  text-shadow: none;
+  box-shadow: 0 0 16px var(--amber-glow), 0 0 30px var(--amber-glow);
+}
+
+/* Іконки всередині кнопок */
+.button i, a[class^="button-"] i {
+  filter: none !important;
+}
+
+/* Футер / приваці лінк */
+footer, .footer, a[href="privacy.html"] {
+  color: var(--amber-dim) !important;
+}
