@@ -1,0 +1,128 @@
+/* =========================================================
+   RETRO GREEN TERMINAL THEME for LittleLink
+   Підключіть цей файл ЗАМІСТЬ retro-amber.css в index.html:
+   <link rel="stylesheet" href="css/retro-green.css">
+   ========================================================= */
+
+:root {
+  --term: #33ff33;
+  --term-dim: #1f9e1f;
+  --term-glow: rgba(51, 255, 51, 0.6);
+  --crt-bg: #050805;
+}
+
+html, body {
+  background-color: var(--crt-bg) !important;
+  color: var(--term) !important;
+  font-family: "Courier New", "Lucida Console", Consolas, monospace !important;
+  position: relative;
+  overflow-x: hidden;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(ellipse at center, rgba(0,0,0,0) 55%, rgba(0,0,0,0.6) 100%);
+  z-index: 2;
+}
+
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background: repeating-linear-gradient(
+    to bottom,
+    rgba(51, 255, 51, 0.04) 0px,
+    rgba(51, 255, 51, 0.04) 1px,
+    transparent 2px,
+    transparent 4px
+  );
+  animation: scan-move 8s linear infinite;
+  z-index: 3;
+}
+
+@keyframes scan-move {
+  0%   { background-position: 0 0; }
+  100% { background-position: 0 100px; }
+}
+
+@keyframes flicker {
+  0%, 100% { opacity: 1; }
+  92%      { opacity: 1; }
+  93%      { opacity: 0.94; }
+  94%      { opacity: 1; }
+}
+.container {
+  animation: flicker 6s infinite;
+  position: relative;
+  z-index: 1;
+}
+
+h1, .title, header h1 {
+  color: var(--term) !important;
+  text-shadow: 0 0 4px var(--term-glow), 0 0 12px var(--term-glow);
+  font-weight: normal !important;
+  letter-spacing: 1px;
+}
+
+h1::after {
+  content: "_";
+  animation: blink 1s steps(1) infinite;
+  margin-left: 4px;
+}
+@keyframes blink {
+  0%, 49% { opacity: 1; }
+  50%, 100% { opacity: 0; }
+}
+
+p, .description {
+  color: var(--term-dim) !important;
+  text-shadow: 0 0 3px var(--term-glow);
+}
+
+img.profile-pic, .avatar {
+  border-radius: 4px !important;
+  border: 2px solid var(--term) !important;
+  box-shadow: 0 0 8px var(--term-glow);
+  filter: grayscale(1) sepia(1) hue-rotate(60deg) saturate(4) brightness(0.9);
+}
+
+.button,
+a[class^="button-"],
+a[class*=" button-"] {
+  background-color: transparent !important;
+  color: var(--term) !important;
+  border: 1px solid var(--term) !important;
+  border-radius: 2px !important;
+  box-shadow: 0 0 6px var(--term-glow);
+  text-shadow: 0 0 4px var(--term-glow);
+  transition: all 0.15s ease-in-out;
+}
+
+.button:hover,
+a[class^="button-"]:hover,
+a[class*=" button-"]:hover {
+  background-color: var(--term) !important;
+  color: var(--crt-bg) !important;
+  text-shadow: none;
+  box-shadow: 0 0 16px var(--term-glow), 0 0 30px var(--term-glow);
+}
+
+.button .icon,
+a[class^="button-"] .icon,
+a[class*=" button-"] .icon {
+  filter: brightness(0) saturate(100%) invert(78%) sepia(46%) saturate(1800%) hue-rotate(60deg) brightness(103%) contrast(101%);
+}
+
+.button:hover .icon,
+a[class^="button-"]:hover .icon,
+a[class*=" button-"]:hover .icon {
+  filter: brightness(0) saturate(100%);
+}
+
+footer, .footer, a[href="privacy.html"] {
+  color: var(--term-dim) !important;
+}
